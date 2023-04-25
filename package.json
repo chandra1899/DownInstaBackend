@@ -1,0 +1,19 @@
+{
+  "name": "instadownloaderbackend",
+  "version": "1.0.0",
+  "description": "can download insta reels and photos",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chandra",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "https-proxy-agent": "^5.0.1",
+    "instagram-url-direct": "^1.0.13"
+  }
+}
