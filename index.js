@@ -1,9 +1,10 @@
 require('dotenv').config()
-const port=process.env.PORT || 8000;
+const port= 8000;
 const express=require('express');
 const app=express();
 const cors = require('cors');
 const instagramGetUrl = require("instagram-url-direct");
+const path=require('path')
 // const HttpsProxyAgent = require('https-proxy-agent');
 // const proxyAgent = new HttpsProxyAgent('http://172.31.2.4:8080');
 
@@ -11,10 +12,12 @@ app.use(cors())
 app.get('/',(req,res)=>{
     return res.send('<h1>Home</h1>')
 })
+app.use('/photo',express.static(path.join(__dirname,'..')))
 
 app.post('/api/link',async (req,res)=>{
     try {
         const url=req.query.url;
+        console.log(url);
         let links = await instagramGetUrl(url);
         if(links.results_number)
        {
