@@ -9,10 +9,11 @@ const path=require('path')
 // const proxyAgent = new HttpsProxyAgent('http://172.31.2.4:8080');
 
 app.use(cors())
+console.log(__dirname);
+app.use('/photo',express.static(path.join(__dirname)))
 app.get('/',(req,res)=>{
     return res.send('<h1>Home</h1>')
 })
-app.use('/photo',express.static(path.join(__dirname,'..')))
 
 app.post('/api/link',async (req,res)=>{
     try {
